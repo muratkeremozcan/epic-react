@@ -1,0 +1,48 @@
+<!-- Basic JavaScript-rendered Hello World -->
+<!-- http://localhost:3000/isolated/exercise/01.html -->
+
+<!-- 🐨 Create (in HTML) a <body> with a <div> with the id of "root" -->
+<!-- 🐨 Then create a <script type="module"> for your JavaScript -->
+<!--   📜 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attributes -->
+<!--   📜 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules -->
+<!--   📜 https://github.com/mdn/js-examples/tree/master/module-examples -->
+
+<!-- These next instructions are to be written in JavaScript in the <script> tag -->
+<!-- 🐨 Create a div -->
+<!--   💰 document.createElement('div') -->
+
+<!-- 🐨 Set the div's textContent to 'Hello World' and className to 'container' -->
+<!--   💰 div.textContent = '...' -->
+
+<!-- 🐨 Append the div to the root div using `append` -->
+<!--   💰 document.getElementById('root') -->
+<!--   📜 https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append -->
+
+
+<!-- TL,DR; We can use JS to create elements (document.createElement(...) 
+	and modify them (.setAttribute or use object notation). 
+	We can build the dom by .appending these elements onto the body and/or each other. 
+	The dom is just another object at the end.-->
+<html>
+
+<body>
+	<script type="module">
+		// (1) create the div & modify it
+		const rootElement = document.createElement('div');
+		// rootElement.id = 'root'
+		// document.getElementsByTagName('body')[0].appendChild(rootElement)
+		// we can also do it this way
+		rootElement.setAttribute('id', 'root');
+		// (2) build the dom with append
+		document.body.append(rootElement)
+
+		// (1) create the div & modify it
+		const div = document.createElement('div')
+		div.textContent = 'Hello World'
+		div.className = 'container'
+		// (2) append the div to the root div
+		document.getElementById('root').append(div)
+	</script>
+</body>
+
+</html>
