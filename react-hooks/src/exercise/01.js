@@ -3,13 +3,14 @@
 
 import * as React from 'react'
 
-function Greeting() {
-  // 💣 delete this variable declaration and replace it with a React.useState call
-  const name = ''
+function Greeting({initialName = ''}) {
+  // [1] TL,DR; useState is used to create a state variable and a setter function to update that state
+  // it is to persist & manage state in a functional component
 
-  function handleChange(event) {
-    // 🐨 update the name here based on event.target.value
-  }
+  const [name, setName] = React.useState(initialName)
+
+  // 🐨 update the name here based on event.target.value
+  const handleChange = event => setName(event.target.value)
 
   return (
     <div>
@@ -23,7 +24,7 @@ function Greeting() {
 }
 
 function App() {
-  return <Greeting />
+  return <Greeting initialName="you" />
 }
 
 export default App
