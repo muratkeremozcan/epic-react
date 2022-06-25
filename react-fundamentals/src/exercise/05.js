@@ -44,7 +44,7 @@ const largeBox = (
 // For CSS, either use class name or style prop
 // style prop takes an object with camelCased property names
 // <div className="box" style={{marginTop: 20, backgroundColor: 'blue'}} />
-// we can use JSX with template literal
+// we can use JSX with template literals
 
 // a component with plain props
 const Box0 = props => <div {...props} />
