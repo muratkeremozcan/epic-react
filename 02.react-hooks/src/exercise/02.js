@@ -6,7 +6,7 @@ import * as React from 'react'
 function Greeting({initialName = ''}) {
   // [2] TL,DR;
   // (0) any time the component renders, useEffect is called
-  // (1) useState can take a fn as an argument which runs once on mount
+  // (1) useState can take a fn as an argument which runs once on mount (lazy initialization)
   // used for initial, costly calculations for initial state, so that they don't repeat on setState
   // (2) useEffect takes a second argument, the "dependency array", which signals to React
   // that the useEffect callback function should only called when those dependencies change
