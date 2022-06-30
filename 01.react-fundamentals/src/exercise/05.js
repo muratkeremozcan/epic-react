@@ -45,6 +45,9 @@ const largeBox = (
 // style prop takes an object with camelCased property names
 // <div className="box" style={{marginTop: 20, backgroundColor: 'blue'}} />
 // we can use JSX with template literals
+// we can pass any props to a component with plain props {...props}
+// as long as we define a className and style attributes in the render of the component
+// we can customize those attributes with the props of the component
 
 // a component with plain props
 const Box0 = props => <div {...props} />
@@ -55,7 +58,7 @@ const Box = ({className = '', styles, size, ...otherProps}) => {
   const sizeClassName = size ? `box--${size}` : ''
   return (
     <div
-      className={`box ${sizeClassName}`} // JSX with template literal
+      className={`box ${className} ${sizeClassName}`} // JSX with template literal
       style={{fontSize: 'italic', ...styles}}
       {...otherProps}
     />
@@ -68,6 +71,7 @@ function App() {
       <Box0 className="box box--small" style={{backgroundColor: 'lightblue'}}>
         prototype
       </Box0>
+
       <Box size="small" style={{backgroundColor: 'lightblue'}}>
         small lightblue box
       </Box>
