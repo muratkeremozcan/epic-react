@@ -18,6 +18,8 @@ import * as React from 'react'
 
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  dispatch calls the reducer with an action
+
   (2)
   A reducer is a function that accepts a state value and an action value.
   It generates a new state value based on the two values passed in, then returns the new state value.
@@ -35,15 +37,18 @@ import * as React from 'react'
   */
 
 const countReducer = (state, action) => {
-  switch (action.type) {
+  const {count} = state
+  const {type, step} = action
+
+  switch (type) {
     case 'INCREMENT': {
-      return {...state, count: state.count + action.step}
+      return {...state, count: count + step}
     }
     case 'DECREMENT': {
-      return {...state, count: state.count - action.step}
+      return {...state, count: count - step}
     }
     default: {
-      throw new Error(`Unsupported action type ${action.type}`)
+      throw new Error(`Unhandled action type: ${action.type}`)
     }
   }
 }
