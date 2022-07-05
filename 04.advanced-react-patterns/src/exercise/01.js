@@ -73,7 +73,7 @@ function useUser() {
   return context
 }
 
-// KEY IDEA: implement the dispatch helpers at the api / provider
+// [1] KEY IDEA: implement the dispatch helpers at the api / provider
 // so that the users of the Provider do not have to duplicate the implementation
 
 // 🐨 add a function here called `updateUser`
