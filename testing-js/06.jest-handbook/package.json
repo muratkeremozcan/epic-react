@@ -1,0 +1,23 @@
+{
+  "name": "06.jest-handbook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "02.01-beforeeach-clearallmocks.test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^28.1.2",
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "express": "^4.18.1",
+    "jest": "^28.1.1",
+    "moxios": "^0.4.0",
+    "prettier": "^2.7.1",
+    "sequelize": "^6.21.0",
+    "supertest": "^6.2.3"
+  }
+}

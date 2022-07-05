@@ -1,3 +1,3 @@
-# epic-react
+# epic-react & testingJs
 
-https://epicreact.dev/learn
+Practicing Kent Dodds' https://epicreact.dev/learn & https://testingjavascript.com/.
