@@ -1,27 +1,27 @@
-// form testing
-// http://localhost:3000/login
-
-import * as React from 'react'
 import {render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import faker from 'faker'
 import Login from '../../components/login'
 
-test('submitting the form calls onSubmit with username and password', () => {
-  // 🐨 create a variable called "submittedData" and a handleSubmit function that
-  // accepts the data and assigns submittedData to the data that was submitted
-  // 💰 if you need a hand, here's what the handleSubmit function should do:
-  // const handleSubmit = data => (submittedData = data)
-  //
-  // 🐨 render the login with your handleSubmit function as the onSubmit prop
-  //
-  // 🐨 get the username and password fields via `getByLabelText`
-  // 🐨 use `await userEvent.type...` to change the username and password fields to
-  //    whatever you want
-  //
-  // 🐨 click on the button with the text "Submit"
-  //
-  // assert that submittedData is correct
-  // 💰 use `toEqual` from Jest: 📜 https://jestjs.io/docs/en/expect#toequalvalue
+function buildLoginForm(overrides) {
+  return {
+    username: faker.internet.userName(),
+    password: faker.internet.password(),
+    ...overrides,
+  }
+}
+// [4] testing forms
+test('submitting the form calls onSubmit with username and password', async () => {
+  const handleSubmit = jest.fn() // mock the prop
+  render(<Login onSubmit={handleSubmit} />) // screen.debug()
+  const {username, password} = buildLoginForm()
+  // use `getByLabelText(..)` and `await userEvent.type(..)
+  await userEvent.type(screen.getByLabelText(/username/i), username)
+  await userEvent.type(screen.getByLabelText(/password/i), password)
+  await userEvent.click(screen.getByText(/submit/i))
+  // use jest to make assertions
+  expect(handleSubmit).toHaveBeenCalledWith({username, password})
+  expect(handleSubmit).toHaveBeenCalledTimes(1)
 })
 
 /*
