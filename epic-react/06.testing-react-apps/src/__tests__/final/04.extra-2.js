@@ -8,11 +8,10 @@ import userEvent from '@testing-library/user-event'
 import faker from 'faker'
 import Login from '../../components/login'
 
-function buildLoginForm(overrides) {
+function buildLoginForm() {
   return {
     username: faker.internet.userName(),
     password: faker.internet.password(),
-    ...overrides,
   }
 }
 
