@@ -5,7 +5,7 @@
 import * as React from 'react'
 import {useForceRerender, useDebouncedState, AppGrid} from '../utils'
 import {RecoilRoot, useRecoilState, useRecoilCallback, atomFamily} from 'recoil'
-
+// [6] if you want to build a grid, use recoil :)
 const AppStateContext = React.createContext()
 
 const initialGrid = Array.from({length: 100}, () =>

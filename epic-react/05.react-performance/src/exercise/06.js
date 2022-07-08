@@ -21,9 +21,9 @@ function appReducer(state, action) {
   switch (action.type) {
     // we're no longer managing the dogName state in our reducer
     // 💣 remove this case
-    case 'TYPED_IN_DOG_INPUT': {
-      return {...state, dogName: action.dogName}
-    }
+    // case 'TYPED_IN_DOG_INPUT': {
+    //   return {...state, dogName: action.dogName}
+    // }
     case 'UPDATE_GRID_CELL': {
       return {...state, grid: updateGridCellState(state.grid, action)}
     }
@@ -39,7 +39,7 @@ function appReducer(state, action) {
 function AppProvider({children}) {
   const [state, dispatch] = React.useReducer(appReducer, {
     // 💣 remove the dogName state because we're no longer managing that
-    dogName: '',
+    // dogName: '',
     grid: initialGrid,
   })
   return (
@@ -83,6 +83,8 @@ function Grid() {
     />
   )
 }
+
+// [3] React.memo makes it so that the component does not re-render because its parent did, which can improve performance
 Grid = React.memo(Grid)
 
 function Cell({row, column}) {
@@ -103,19 +105,33 @@ function Cell({row, column}) {
     </button>
   )
 }
+// [3] React.memo makes it so that the component does not re-render because its parent did, which can improve performance
 Cell = React.memo(Cell)
+
+// [6]
+/*
+Often you have components responding to a state change that don't need to. 
+We memoize these with React.memo [3], and we could do that to all the components in our app,
+
+1. It increases the complexity of our app
+2. React's still doing a bunch of work to check whether these components should be re-rendered.
+
+To address this, we put state where it's relevant; the component itself. This is called co-location. 
+*/
 
 function DogNameInput() {
   // 🐨 replace the useAppState and useAppDispatch with a normal useState here
   // to manage the dogName locally within this component
-  const state = useAppState()
-  const dispatch = useAppDispatch()
-  const {dogName} = state
+  // const state = useAppState()
+  // const dispatch = useAppDispatch()
+  // const {dogName} = state
+  const [dogName, setDogName] = React.useState('')
 
   function handleChange(event) {
     const newDogName = event.target.value
     // 🐨 change this to call your state setter that you get from useState
-    dispatch({type: 'TYPED_IN_DOG_INPUT', dogName: newDogName})
+    // dispatch({type: 'TYPED_IN_DOG_INPUT', dogName: newDogName})
+    setDogName(newDogName)
   }
 
   return (

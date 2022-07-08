@@ -38,8 +38,12 @@ function AppProvider({children}) {
     dogName: '',
     grid: initialGrid,
   })
+  // [5] With context api, whenever the provided value changes from one render to another
+  // it triggers a re-render of all the consuming components
+  // To address this, memoize the value that you provide to the context provider
   // 🐨 memoize this value with React.useMemo
-  const value = [state, dispatch]
+  // const value = [state, dispatch]
+  const value = React.useMemo(() => [state, dispatch], [state, dispatch])
   return (
     <AppStateContext.Provider value={value}>
       {children}

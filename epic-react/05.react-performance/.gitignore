@@ -5,3 +5,4 @@ build
 .idea/
 .vscode/
 .eslintcache
+src/exercise/02.md
