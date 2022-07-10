@@ -1,3 +1,4 @@
+import * as React from 'react'
 import {render, screen, waitFor} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import {GreetingLoader} from '../greeting-loader-02-dependency-injection'
