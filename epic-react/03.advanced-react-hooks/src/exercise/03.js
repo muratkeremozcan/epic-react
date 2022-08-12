@@ -1,5 +1,10 @@
 // useContext: simple Counter
 // http://localhost:3000/isolated/exercise/03.js
+// [3] why useContext?
+// Context api lets us pass a value deep into the component tree
+// without explicitly threading it through every component (prop drilling)
+// identify what components may need in common (ex: Auth)
+// Manage state and effects related to a hook’s functionality within the hook and return only the value(s) that components need
 
 import * as React from 'react'
 

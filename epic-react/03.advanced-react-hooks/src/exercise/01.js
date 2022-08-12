@@ -3,6 +3,7 @@
 
 import * as React from 'react'
 
+// [1] useReducer
 /* [1] Why useReducer?
   When state values are related, affecting each other or being changed together
   it can help to move the state update logic into a single place

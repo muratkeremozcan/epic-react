@@ -100,6 +100,8 @@ function App() {
 
 export default App
 
-// [3] useTransition hook is used for an intermediate step between ErrorBoundary and Suspense
+// [3]  useTransition to defer state updates / de-prioritize expensive operations
+// here the below is an expensive operation
+// useTransition hook can be used for an intermediate step between ErrorBoundary and Suspense
 // where we can use a isPending flag to further customize the intermediate loading state
 // start -> show isPending (ex: grey out) -> show suspense fallback (ex: loading... -> show final UI

@@ -16,7 +16,7 @@ test('counter increments and decrements when the buttons are clicked', async () 
   expect(message).toHaveTextContent('Current count: 0')
 })
 
-// [4] render(<Component />) ,
+// [4] KEY render(<Component />) ,
 // screen.getByRole(..) / .getByText(..)
 // userEvent.click(..)
 // toHaveTextContent(..)

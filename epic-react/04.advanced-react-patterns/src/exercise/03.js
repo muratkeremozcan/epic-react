@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-// Flexible Compound Components
+// [3] KEY Flexible Compound Components
 // http://localhost:3000/isolated/exercise/03.js
 
 import * as React from 'react'

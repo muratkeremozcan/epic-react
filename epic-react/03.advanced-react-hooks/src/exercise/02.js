@@ -1,5 +1,8 @@
-// useCallback: custom hooks
-// http://localhost:3000/isolated/exercise/02.js
+// [2] useCallback
+// why useCallback?
+// custom functions get defined on every render and can cause network spam.
+// useCallback lets us memoize functions. To prevent the redefinition or recalculation of values.
+// useCallBack(updaterFn, [dependencies])
 
 import * as React from 'react'
 import {

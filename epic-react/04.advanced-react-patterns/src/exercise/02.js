@@ -20,8 +20,7 @@ function Toggle({children}) {
   // problem: how do we take the state values that the toggle is managing
   // and share it implicitly to the toggle on, toggle off, and toggle button components
   // [2] KEY IDEA: Compound Components Pattern enables you to provide a set of components that implicitly share state
-  // otherwise the state shared between the components can be implicit,
-  //  meaning that the developer using your component cannot actually see or interact with the state
+  // otherwise the developer using your component cannot actually see or interact with the state
   // so we create cloned versions of the children components with the props we need to implicitly share state
   return React.Children.map(children, child => {
     return typeof child.type === 'string'
