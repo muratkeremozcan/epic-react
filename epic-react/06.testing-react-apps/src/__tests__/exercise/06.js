@@ -78,7 +78,8 @@ test('displays the users current location', async () => {
     resolve()
     await promise
   })
-  //
+
+  expect(window.navigator.geolocation.getCurrentPosition).toHaveBeenCalled()
   // 🐨 verify the loading spinner is no longer in the document
   //    (💰 use queryByLabelText instead of getByLabelText)
   expect(screen.queryByLabelText(/loading/i)).not.toBeInTheDocument()
